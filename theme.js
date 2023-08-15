@@ -13,17 +13,6 @@ const DribbblishShared = {
 };
 
 // register drib menu item
-DribbblishShared.configMenu.register();
-DribbblishShared.configMenu.addItem(new Spicetify.Menu.Item(
-    "Right expanded cover",
-    DribbblishShared.rightBigCover,
-    (self) => {
-        self.isEnabled = !self.isEnabled;
-        DribbblishShared.rightBigCover = self.isEnabled;
-        localStorage.setItem("dribs-right-big-cover", self.isEnabled);
-        DribbblishShared.setRightBigCover();
-    }
-));
 DribbblishShared.setRightBigCover();
 
 function waitForElement(els, func, timeout = 100) {
@@ -34,8 +23,6 @@ function waitForElement(els, func, timeout = 100) {
         setTimeout(waitForElement, 300, els, func, --timeout);
     }
 }
-
-
 
 waitForElement([".Root__top-container"], ([topContainer]) => {
     const shadow = document.createElement("div");
